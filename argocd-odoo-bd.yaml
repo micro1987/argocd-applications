@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: odoo-bd
+  namespace: argo-cicd
+spec:
+  destination:
+    namespace: odoo-istio
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: odoo-bd
+    helm:
+      valueFiles:
+      - values.yaml
+    repoURL: https://micro1987.github.io/my-helm-charts/
+    targetRevision: 2.1.0
