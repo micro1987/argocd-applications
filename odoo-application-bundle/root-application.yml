@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-application
+  name: odoo-application-bundle
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argo-cicd
   # Add a this finalizer ONLY if you want these to cascade delete.
@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://github.com/micro1987/argocd-applications.git
     targetRevision: HEAD
-    path: ./odoo-application/manifests
+    path: ./odoo-application/manifests/
    
     # directory
     directory:
